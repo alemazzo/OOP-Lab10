@@ -96,8 +96,6 @@ public final class AnotherConcurrentGUI extends JFrame {
      * invisible outside and encapsulated.
      */
     private class TimerAgent implements Runnable {
-
-        private static final int DEFAULT_SLEEP_TIME = 10_000;
         
         private int sleepTime;
         private Runnable function;
@@ -105,9 +103,6 @@ public final class AnotherConcurrentGUI extends JFrame {
         public TimerAgent(final int sleepTime, final Runnable function){
             this.sleepTime = sleepTime;
             this.function = function;
-        }
-        public TimerAgent(final Runnable function) {
-            this(DEFAULT_SLEEP_TIME, function);
         }
         
         @Override
