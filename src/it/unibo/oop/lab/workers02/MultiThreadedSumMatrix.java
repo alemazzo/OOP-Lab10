@@ -48,9 +48,7 @@ public class MultiThreadedSumMatrix implements SumMatrix {
             
             // System.out.println("Working from position " + startpos + " to position " + (startpos + nelem - 1));
             for (int i = startpos; i < totalLength && i < startpos + nelem; i++) {
-                final int indexX = i % rowSize;
-                final int indexY = i / rowSize;
-                this.res += this.matrix[indexX][indexY];
+                this.res += this.matrix[i % rowSize][i / rowSize];
             }
         }
 
