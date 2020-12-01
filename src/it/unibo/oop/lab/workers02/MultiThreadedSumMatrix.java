@@ -46,7 +46,7 @@ public class MultiThreadedSumMatrix implements SumMatrix {
             final int totalLength = matrix.length * matrix[0].length;
             final int rowSize = this.matrix[0].length;
             
-            System.out.println("Working from position " + startpos + " to position " + (startpos + nelem - 1));
+            // System.out.println("Working from position " + startpos + " to position " + (startpos + nelem - 1));
             for (int i = startpos; i < totalLength && i < startpos + nelem; i++) {
                 final int indexX = i % rowSize;
                 final int indexY = i / rowSize;
