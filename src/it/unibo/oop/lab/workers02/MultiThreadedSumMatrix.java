@@ -44,11 +44,12 @@ public class MultiThreadedSumMatrix implements SumMatrix {
         public void run() {
             
             final int totalLength = matrix.length * matrix[0].length;
-            final int rowSize = this.matrix[0].length;
+            final int rows = this.matrix.length;
+            final int columns = this.matrix[0].length;
             
-            // System.out.println("Working from position " + startpos + " to position " + (startpos + nelem - 1));
+            System.out.println("Working from position " + startpos + " to position " + (startpos + nelem - 1));
             for (int i = startpos; i < totalLength && i < startpos + nelem; i++) {
-                this.res += this.matrix[i % rowSize][i / rowSize];
+                this.res += this.matrix[i / columns][i % rows];
             }
         }
 
@@ -68,7 +69,7 @@ public class MultiThreadedSumMatrix implements SumMatrix {
         final int totalLength = matrix.length * matrix[0].length;
         final int size = totalLength % nthread + totalLength / nthread;
         /*
-         * Build a list of workers
+         * Build a list of wor kers
          */
         final List<Worker> workers = new ArrayList<>(nthread);
         for (int start = 0; start < totalLength; start += size) {
